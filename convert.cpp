@@ -2,8 +2,7 @@
 #include <map>
 #include <vector>
 #include <cctype>
-#include <algorithm> // Include this header for std::all_of
-
+#include <algorithm>
 std::map<char, std::vector<std::string>> one_digit_words = {
     {'0', {"zero"}},
     {'1', {"one"}},
@@ -16,13 +15,10 @@ std::map<char, std::vector<std::string>> one_digit_words = {
     {'8', {"eight"}},
     {'9', {"nine"}}
 };
-
 std::vector<std::string> two_digit_words = {"ten", "eleven", "twelve"};
 std::string hundred = "hundred";
 std::string thousand = "thousand";
-
 std::string convertThreeDigitNumber(const std::string& num);
-
 std::string convertNumber(const std::string& num) {
     std::string word;
     if (num == "0") {
@@ -40,12 +36,10 @@ std::string convertNumber(const std::string& num) {
     word[0] = toupper(word[0]);
     return word;
 }
-
 std::string convertThreeDigitNumber(const std::string& num) {
     std::string word;
     std::string part = num;
     part.erase(0, std::min(part.find_first_not_of('0'), part.size()-1));
-
     if (part.length() == 1) {
         word += one_digit_words[part[0]][0];
     } else if (part.length() == 2) {
@@ -84,7 +78,6 @@ std::string convertThreeDigitNumber(const std::string& num) {
     }
     return word;
 }
-
 int main() {
     std::string n;
     while (true) {
